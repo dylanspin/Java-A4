@@ -11,7 +11,7 @@ public class Woord {
 			   "pakje","bakje","zakje","hekje","koffie","vlekje","thee","suiker","game","hippo","lidl","makro","duitsland",
 			   "dop","papier","wc","stoelpoot","deurklink","kruk","rood","bloed","zee","computerscherm","oortjes","muziek",
 			   "natrium","kernenergie","brand","amazone","vliegtuig","boot","heg","koffievlek","wcroll","wcbrill","kraan",
-			   "hond","kat","eten","maand","maan","maart","maat","makker","ijzer","Zyklon","mostardgas","mostard","bom","rusland",
+			   "hond","kat","eten","maand","maan","maart","maat","makker","ijzer","zyklon","mostardgas","mostard","bom","rusland",
 			   "amerika","naam","geen","zuurstof","meer","hyper","knop","zout","zuur","bot","pijn","pijp","lange","gordijn",
 			   "monitor","kabel","pizza","pizzadeeg","massa","graf","begraafplaats","parkeerplaats","botten","stof","jodium",
 			   "guillotine","touw","heks","wich","johnwick","lucht","wolken","zon","regen","ratten","marters","bond","vogel",
@@ -19,7 +19,9 @@ public class Woord {
 			   "wortel","werken","stoppen","aangereden","bord","man","vrouw","geld","vis","vissen","haven","sluiten","student",
 			   "dik","vet","crimineel","briefenbus","wetenschap","baas","basischool","schedel","gras","juf","film","hout","club",
 			   "opium","coke","cola","brood","vloer","draad","noten","leer","walvis","handel","lang","afval","rook","brandalarm",
-			   "hoefijzer","vervoerdersaansprakelijkheidsverzekering","gamalagamala","praten","donker","wolf","kinderen","opgegeten"
+			   "hoefijzer","vervoerdersaansprakelijkheidsverzekering","gamalagamala","praten","leugen","donker","wolf","kinderen",
+			   "opgegeten","paard","rijden","geen","sport","pc","toets","ondernemen","normaal","hand","vinger","galgje","lichaam","zak",
+			   "drie","boom","vis","dier","natuurlijk","usb","flag","nederland","duitsland","frankrijk","spanje"
    };
 	static public int lengte = 0;
 	
@@ -35,6 +37,7 @@ public class Woord {
 		woord = (woorden[number]);
 		System.out.println(woord);
 		lengte = (woorden[number].length());//moet mischien nog weg.
+		
 	}
 
 }

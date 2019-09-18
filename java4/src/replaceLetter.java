@@ -2,12 +2,10 @@
 public class replaceLetter {
 	
 	public String replaceWoord;
-	public int tell;
-	
+	public String letter,hetWoord,text;
 	public void replace_woord(){
 		
-		Woord woord = new  Woord();
-		Index index = new Index();
+		Woord woord = new Woord();
 		
 		replaceWoord = (woord.woord);//krijgt het woord van de classe Woord.
 		
@@ -15,18 +13,39 @@ public class replaceLetter {
 
 	}
 	
-	public void gelijk() {
-		Index index = new Index();
+	public void gelijk(String[] ingevult, int tell){
 		
-		tell = index.tell;
-		System.out.println("tell: "+index.tell);
+		Woord woord = new Woord();
+		hetWoord = (woord.woord);
+		letter = ingevult[tell].substring(0,1);
 		
-		StringBuilder replaceWoord = new StringBuilder("test"); //moet nog veranderen is een test.
-		replaceWoord.setCharAt(2, 'x');
-		//System.out.println(replaceWoord);
-		System.out.println("ingevulde letter: "+index.ingevult[tell]);
+		System.out.println("tell: "+tell);
+		System.out.println("ingevulde letter: "+letter);
+		System.out.println(hetWoord);
 		
-		//replaceWoord = replaceWoord.replace(index.ingevult[tell],index.ingevult[tell]);
+		int loc = (hetWoord.indexOf(letter));
+		System.out.println("locatie van de letter: "+loc);
+		
+		if(loc >= 0) {
+			System.out.println("zit er in.");
+			 //String test;
+			 //test=replaceWoord.replace(replaceWoord.charAt(loc),'x');
+			 //System.out.println(test);
+			//moet het streepje met de locatie van de letter de letter worden.
+		}
+		else {
+			System.out.println("fout");
+			//moet er een leven van af.
+		}
 	}
+	
+	/*wat er nog mmoet gebeuren:
+	 * settext van de JLabel
+	 * replacewoord text aanpasen
+	 * het raden van het woord 
+	 * de levens 
+	 * de soort van foto's van de galg
+	 * ales zo als de eindopdracht moet maken
+	*/
 
 }

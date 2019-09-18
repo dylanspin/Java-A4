@@ -19,8 +19,7 @@ public class Index extends JFrame{
 	
 	public static String vak;
 	public String[] ingevult = new String[100];
-	public int tell;
-
+	public int tell;	
 	
 	public Index() {
 		
@@ -34,7 +33,7 @@ public class Index extends JFrame{
 		
 	}
 	
-	private void createView() {
+	public void createView() {
 		
 		replaceLetter Replace = new replaceLetter();
 		
@@ -59,7 +58,7 @@ public class Index extends JFrame{
 		        	raden.setText("Woord");
 		        }
 		    }
-		    });
+	    });
 		
 		letter = new JTextField("");//krijg for some reason niet de input moet gefixt worden
 		letter.setPreferredSize(new Dimension(100,30));
@@ -77,7 +76,7 @@ public class Index extends JFrame{
 		        	letter.setText("Letter");
 		        }
 		    }
-		    });
+	    });
 		
 		enter = new JLabel();
 		enter.setPreferredSize(new Dimension(400,20));
@@ -115,8 +114,8 @@ public class Index extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				tell++;
 				ingevult[tell]=letter.getText();
-				System.out.println("Dit is een test: "+ingevult[tell]);
-				Replace.gelijk();
+				Replace.gelijk(ingevult,tell);
+				//letters.setText(Replace.replaceWoord); moet nog 
 			}	
 		});
 		
@@ -143,14 +142,10 @@ public class Index extends JFrame{
 		Woord woord = new  Woord(); //Woord class.
 		replaceLetter Replace = new replaceLetter(); //replaceLetter class.
 		
-		String test = "test"; //test moet nog weg
-		int loc = test.indexOf('s');
-		System.out.println("locatie van de letter e = "+loc);
-		
 		woord.random();//pakt een random woord uit de classe woord.
 		Replace.replace_woord();//maakt van het woord streepjes.
 		
-		vak = (Replace.replaceWoord); //krijgt het woord van de classe Woord.
+		vak = (Replace.replaceWoord);
 		
 		Index Class = new Index();
 		
