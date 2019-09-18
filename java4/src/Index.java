@@ -1,9 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,6 +16,10 @@ public class Index extends JFrame{
 	private JTextField letter,raden;
 	private JLabel naam,geraden,letters,enter,enter2,space;
 	private JButton reset,stuur;
+	
+	public static String vak;
+	public String[] ingevult = new String[100];
+	public int tell;
 
 	
 	public Index() {
@@ -31,14 +36,16 @@ public class Index extends JFrame{
 	
 	private void createView() {
 		
+		replaceLetter Replace = new replaceLetter();
+		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.DARK_GRAY);
+		panel.setBackground(new Color(47,45,45));
 		getContentPane().add(panel);
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
 		raden = new JTextField("Woord");//textfield voor het raden van het woord.
 		raden.setPreferredSize(new Dimension(150,30));
-		raden.addFocusListener(new FocusListener() {//placeholder ding moet nog in een function denkt.
+		raden.addFocusListener(new FocusListener() {//placeholder ding.
 			
 		    public void focusGained(FocusEvent e) {
 		        if (raden.getText().equals("Woord")) {
@@ -54,10 +61,10 @@ public class Index extends JFrame{
 		    }
 		    });
 		
-		letter = new JTextField("Letter");//textfield voor het invullen van de letters.
+		letter = new JTextField("");//krijg for some reason niet de input moet gefixt worden
 		letter.setPreferredSize(new Dimension(100,30));
 		letter.addFocusListener(new FocusListener() {//placeholder ding.
-		
+			
 		    public void focusGained(FocusEvent e) {
 		        if (letter.getText().equals("Letter")) {
 		        	letter.setText("");
@@ -85,10 +92,10 @@ public class Index extends JFrame{
 		naam.setForeground(Color.WHITE);
 		naam.setFont(new Font("", Font.PLAIN, 75));
 		
-		letters = new JLabel("-----");
+		letters = new JLabel(vak);
 		letters.setForeground(Color.WHITE);
 		letters.setFont(new Font("", Font.PLAIN, 40));
-		letters.setPreferredSize(new Dimension(290,30));
+		letters.setPreferredSize(new Dimension(290,40));
 		
 		geraden = new JLabel("");
 		geraden.setFont(new Font("", Font.PLAIN, 75));
@@ -97,11 +104,21 @@ public class Index extends JFrame{
 		
 		reset = new JButton("Reset");//reset button voor de game.
 		reset.setPreferredSize(new Dimension(100,30));
+		reset.addActionListener(
+				new ButtonCounterActionListener()
+		);		
 		
 		stuur = new JButton("Stuur");//stuurt de letter/geraden woord.
 		stuur.setPreferredSize(new Dimension(150,30));
-		
-		//stuur.setBorder(BorderFactory.createEmptyBorder(0,0,0,150));
+		stuur.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				tell++;
+				ingevult[tell]=letter.getText();
+				System.out.println("Dit is een test: "+ingevult[tell]);
+				Replace.gelijk();
+			}	
+		});
 		
 		panel.add(naam);
 		panel.add(enter);
@@ -115,23 +132,34 @@ public class Index extends JFrame{
 		panel.add(geraden);
 		
 	}
+		/*Dit moet in een andere classe. Het moet eerst het woord van de classe woord halen dan moet die naar streepjes omzetten.
+		  Als die dat heeft gedaan stuurt die hem naar de main class. Wat dan weer hier word uitgeprint op de locatie. later als
+		  er een letter word door gestuurd dan moet die checken als de letter in het woord zit zo ja veranderd die het weer en stuurt
+		  het weer door en word het weer uitgeprint en als het niet klopt moet die dat door geven aand de class die de levens doet 
+		  ook nog moet er score bij gehouden*/
 	
 	public static void main(String[] args) {
 	
-		Woord woord = new  Woord();
-		Test test = new  Test();
+		Woord woord = new  Woord(); //Woord class.
+		replaceLetter Replace = new replaceLetter(); //replaceLetter class.
+		
+		String test = "test"; //test moet nog weg
+		int loc = test.indexOf('s');
+		System.out.println("locatie van de letter e = "+loc);
 		
 		woord.random();//pakt een random woord uit de classe woord.
+		Replace.replace_woord();//maakt van het woord streepjes.
+		
+		vak = (Replace.replaceWoord); //krijgt het woord van de classe Woord.
 		
 		Index Class = new Index();
 		
-		SwingUtilities.invokeLater(new Runnable() {
-	  		    	
+		SwingUtilities.invokeLater(new Runnable() {    	
     		public void run() {
     			new Index().setVisible(true);
-    		}
+    		}	
     	}); 
 		
 	}
-
 }
+

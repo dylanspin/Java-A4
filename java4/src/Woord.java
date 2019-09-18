@@ -21,6 +21,9 @@ public class Woord {
 			   "opium","coke","cola","brood","vloer","draad","noten","leer","walvis","handel","lang","afval","rook","brandalarm",
 			   "hoefijzer","vervoerdersaansprakelijkheidsverzekering","gamalagamala","praten","donker","wolf","kinderen","opgegeten"
    };
+	static public int lengte = 0;
+	
+	static public String woord;
 	
 	public String[] getWoord() { return woorden; }
 	
@@ -28,8 +31,10 @@ public class Woord {
 		
 		Random random = new Random();
 		int number;
-		number =1+random.nextInt(204);
-		System.out.println(woorden[number]);
+		number = 1+random.nextInt(204);
+		woord = (woorden[number]);
+		System.out.println(woord);
+		lengte = (woorden[number].length());//moet mischien nog weg.
 	}
 
 }
