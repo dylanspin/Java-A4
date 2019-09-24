@@ -3,8 +3,8 @@ import java.util.Random;
 public class Woord {
 
 	static public String[] woorden = {
-			   "scherm","beer","dylan","koelkast","laptop","apple","oplader","mobiel","water","stoel","leven","school","joke"
-			   ,"fles","muis","klomp","bus","station","muismat","tafel","raam","auto","brandblusser","klok","paracetamol",
+			   "scherm","beer","dylan","koelkast","laptop","apple","oplader","mobiel","water","stoel","leven","school","joke",
+			   "fles","muis","klomp","bus","station","muismat","tafel","raam","auto","brandblusser","klok","paracetamol",
 			   "takties","stage","pen","fiets","android","busje","zeven","huis","letter","fietstas","woestijn","pinpas",
 			   "importeren","trap","camper","tesla","jumbo","lamp","kernbom","bank","telefoon","stekkerdoos","mond","voedsel",
 			   "chimmel","filmen","drugs","dood","arbeidsongeschiktheidsverzekering","zandsteen","stralen","wiel","fietsband",
@@ -14,7 +14,7 @@ public class Woord {
 			   "hond","kat","eten","maand","maan","maart","maat","makker","ijzer","cooper","mostardgas","mostard","bom","rusland",
 			   "amerika","naam","geen","zuurstof","muismat","hyper","knop","zout","zuur","bot","pijn","pijp","lange","gordijn",
 			   "monitor","kabel","pizza","pizzadeeg","tomaat","graf","begraafplaats","parkeerplaats","botten","stof","jodium",
-			   "guillotine","touw","heks","wich","johnwick","lucht","wolken","zon","regen","ratten","marters","bond","vogel",
+			   "guillotine","touw","heks","cijfer","johnwick","lucht","wolken","zon","regen","ratten","marters","bond","vogel",
 			   "spijkers","potlood","receptionist","kraam","random","bootvliegtuig","zinken","zink","regenpijp","slecht","wifi",
 			   "wortel","werken","stoppen","aangereden","bord","man","vrouw","geld","vis","vissen","haven","sluiten","student",
 			   "dik","vet","crimineel","briefenbus","wetenschap","baas","basischool","schedel","gras","juf","film","hout","club",
@@ -23,8 +23,9 @@ public class Woord {
 			   "opgegeten","paard","rijden","geen","sport","pc","toets","ondernemen","normaal","hand","vinger","galgje","lichaam",
 			   "zak","drie","boom","vis","dier","natuurlijk","usb","flag","nederland","duitsland","frankrijk","spanje","sla","brood",
 			   "boot","tank","spoor","tijd","spatie","letter","weggaan","verlaten","eten","appel","peer","meloen","schakel","lamp",
-			   "water","bureaustoelwielen","brandblusser","kerk","toren","dorp","stad","fiets","meneer","mevrouw","paintballgeweer",
-			   "paddestoel","kikker","afval","bier"
+			   "water","bureaustoelwielen","doos","kerk","toren","dorp","stad","fiets","meneer","mevrouw","paintballgeweer",
+			   "paddestoel","kikker","afval","bier","java","marvel","spel","horloge","kunst","vloer","emotie","lucht","gras","spin",
+			   "halfuur","tegenwoordig","landelijk","geschiedenis","groot","klein","eigenaar","werkgever","werknemer"
    };
 	static public int lengte = 0;
 	
@@ -38,7 +39,6 @@ public class Woord {
 		int number;
 		number = 1+random.nextInt(204);
 		woord = (woorden[number]);
-		System.out.println(woord);
 		lengte = (woorden[number].length());//moet mischien nog weg.
 		
 	}

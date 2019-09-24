@@ -5,12 +5,13 @@ public class Levens {
 	public String tekening;
 	
 	public void printLevens(int levens) {
+		Woord woord = new Woord();
 		
-	 	leven[0] = "    Game over\n"
+	 	leven[0] = "    Game over woord: " + woord.woord + "\n"
 				+ "           _______ \n"
 				+ "           |/           |\n"
 				+ "           |            ()\n"
-				+ "           |           {()}\n"
+				+ "           |           /()\\\n"
 				+ "           |            LL\n"
 				+ "           |\n"
 				+ "   ____|_______\n";
@@ -48,8 +49,6 @@ public class Levens {
 				+ "   ____|______\n";
 		
 		tekening = leven[levens];
-		System.out.println("levens: "+levens);
-		
 	}
 
 }

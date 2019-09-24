@@ -15,10 +15,11 @@ public class Index extends JFrame{
 	
 	private JTextField letter,raden;
 	private JTextPane galg;
-	private JLabel naam,geraden,letters,enter,enter2,space;
+	private JLabel naam,letters,enter,enter2,space;
 	private JButton reset,stuur;
 	
 	public static String vak,tekening;
+	public String raad;
 	public String[] ingevult = new String[100];
 	public int tell,kansen;	
 	
@@ -43,41 +44,11 @@ public class Index extends JFrame{
 		getContentPane().add(panel);
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
-		raden = new JTextField("Woord");//textfield voor het raden van het woord.
+		raden = new JTextField("");//textfield voor het raden van het woord.
 		raden.setPreferredSize(new Dimension(150,30));
-		raden.addFocusListener(new FocusListener() {//placeholder ding.
-			
-		    public void focusGained(FocusEvent e) {
-		        if (raden.getText().equals("Woord")) {
-		        	raden.setText("");
-		        	raden.setForeground(Color.BLACK);
-		        }
-		    }
-		    public void focusLost(FocusEvent e) {
-		        if (raden.getText().isEmpty()) {
-		        	raden.setForeground(Color.GRAY);
-		        	raden.setText("Woord");
-		        }
-		    }
-	    });
 		
 		letter = new JTextField("");//krijg for some reason niet de input moet gefixt worden
 		letter.setPreferredSize(new Dimension(100,30));
-		letter.addFocusListener(new FocusListener() {//placeholder ding.
-			
-		    public void focusGained(FocusEvent e) {
-		        if (letter.getText().equals("Letter")) {
-		        	letter.setText("");
-		        	letter.setForeground(Color.BLACK);
-		        }
-		    }
-		    public void focusLost(FocusEvent e) {
-		        if (letter.getText().isEmpty()) {
-		        	letter.setForeground(Color.GRAY);
-		        	letter.setText("Letter");
-		        }
-		    }
-	    });
 		
 		enter = new JLabel();
 		enter.setPreferredSize(new Dimension(400,20));
@@ -97,13 +68,8 @@ public class Index extends JFrame{
 		letters.setFont(new Font("", Font.PLAIN, 40));
 		letters.setPreferredSize(new Dimension(290,40));
 		
-		geraden = new JLabel("");
-		geraden.setFont(new Font("", Font.PLAIN, 75));
-		geraden.setPreferredSize(new Dimension(400,50));
-		geraden.setBackground(Color.BLUE);
-		
 		galg = new JTextPane();
-		galg.setPreferredSize(new Dimension(400,330));
+		galg.setPreferredSize(new Dimension(400,400));
 		galg.setFont(new Font("", Font.PLAIN, 30));
 		galg.setForeground(Color.WHITE);
 		galg.setBackground(new Color(47,45,45));
@@ -121,7 +87,8 @@ public class Index extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				tell++;
 				ingevult[tell]=letter.getText();
-				Replace.gelijk(ingevult,tell);
+				raad = raden.getText();
+				Replace.gelijk(ingevult,tell,raad);
 				letters.setText(Replace.replaceWoord); 
 				letter.setText("");
 				kansen = Replace.kansen;
@@ -138,7 +105,6 @@ public class Index extends JFrame{
 		panel.add(letters);
 		panel.add(stuur);
 		panel.add(reset);
-		panel.add(geraden);
 		panel.add(galg);
 		
 	}
