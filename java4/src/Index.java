@@ -14,12 +14,13 @@ import javax.swing.border.EmptyBorder;
 public class Index extends JFrame{
 	
 	private JTextField letter,raden;
+	private JTextPane galg;
 	private JLabel naam,geraden,letters,enter,enter2,space;
 	private JButton reset,stuur;
 	
-	public static String vak;
+	public static String vak,tekening;
 	public String[] ingevult = new String[100];
-	public int tell;	
+	public int tell,kansen;	
 	
 	public Index() {
 		
@@ -101,13 +102,19 @@ public class Index extends JFrame{
 		geraden.setPreferredSize(new Dimension(400,50));
 		geraden.setBackground(Color.BLUE);
 		
-		reset = new JButton("Reset");//reset button voor de game.
+		galg = new JTextPane();
+		galg.setPreferredSize(new Dimension(400,330));
+		galg.setFont(new Font("", Font.PLAIN, 30));
+		galg.setForeground(Color.WHITE);
+		galg.setBackground(new Color(47,45,45));
+		
+		reset = new JButton("Reset");//reset button voor de game.//moet denkt nog in een andere class.
 		reset.setPreferredSize(new Dimension(100,30));
 		reset.addActionListener(
 				new ButtonCounterActionListener()
 		);		
 		
-		stuur = new JButton("Stuur");//stuurt de letter/geraden woord.
+		stuur = new JButton("Stuur");//stuurt de letter/geraden woord.//moet denkt nog in een andere class.
 		stuur.setPreferredSize(new Dimension(150,30));
 		stuur.addActionListener(new ActionListener() {
 			
@@ -115,7 +122,10 @@ public class Index extends JFrame{
 				tell++;
 				ingevult[tell]=letter.getText();
 				Replace.gelijk(ingevult,tell);
-				//letters.setText(Replace.replaceWoord); moet nog 
+				letters.setText(Replace.replaceWoord); 
+				letter.setText("");
+				kansen = Replace.kansen;
+				galg.setText(Replace.tekening);
 			}	
 		});
 		
@@ -129,13 +139,9 @@ public class Index extends JFrame{
 		panel.add(stuur);
 		panel.add(reset);
 		panel.add(geraden);
+		panel.add(galg);
 		
 	}
-		/*Dit moet in een andere classe. Het moet eerst het woord van de classe woord halen dan moet die naar streepjes omzetten.
-		  Als die dat heeft gedaan stuurt die hem naar de main class. Wat dan weer hier word uitgeprint op de locatie. later als
-		  er een letter word door gestuurd dan moet die checken als de letter in het woord zit zo ja veranderd die het weer en stuurt
-		  het weer door en word het weer uitgeprint en als het niet klopt moet die dat door geven aand de class die de levens doet 
-		  ook nog moet er score bij gehouden*/
 	
 	public static void main(String[] args) {
 	
@@ -146,8 +152,6 @@ public class Index extends JFrame{
 		Replace.replace_woord();//maakt van het woord streepjes.
 		
 		vak = (Replace.replaceWoord);
-		
-		Index Class = new Index();
 		
 		SwingUtilities.invokeLater(new Runnable() {    	
     		public void run() {
