@@ -11,7 +11,7 @@ public class Woord {
 			   "pakje","bakje","zakje","hekje","koffie","vlekje","thee","suiker","game","hippo","lidl","makro","duitsland",
 			   "dop","papier","wc","stoelpoot","deurklink","kruk","rood","bloed","zee","computerscherm","oortjes","muziek",
 			   "natrium","kernenergie","brand","amazone","vliegtuig","boot","heg","koffievlek","wcroll","wcbrill","kraan",
-			   "hond","kat","eten","maand","maan","maart","maat","makker","ijzer","cooper","mostardgas","mostard","bom","rusland",
+			   "hond","kat","eten","maand","maan","maart","maat","makker","ijzer","kooper","mostardgas","mostard","bom","rusland",
 			   "amerika","naam","geen","zuurstof","muismat","hyper","knop","zout","zuur","bot","pijn","pijp","lange","gordijn",
 			   "monitor","kabel","pizza","pizzadeeg","tomaat","graf","begraafplaats","parkeerplaats","botten","stof","jodium",
 			   "guillotine","touw","heks","cijfer","johnwick","lucht","wolken","zon","regen","ratten","marters","bond","vogel",
@@ -25,7 +25,9 @@ public class Woord {
 			   "boot","tank","spoor","tijd","spatie","letter","weggaan","verlaten","eten","appel","peer","meloen","schakel","lamp",
 			   "water","bureaustoelwielen","doos","kerk","toren","dorp","stad","fiets","meneer","mevrouw","paintballgeweer",
 			   "paddestoel","kikker","afval","bier","java","marvel","spel","horloge","kunst","vloer","emotie","lucht","gras","spin",
-			   "halfuur","tegenwoordig","landelijk","geschiedenis","groot","klein","eigenaar","werkgever","werknemer"
+			   "halfuur","tegenwoordig","landelijk","geschiedenis","groot","klein","eigenaar","werkgever","werknemer","alochtoon",
+			   "geel","bever","bioscoop","vogel","japan","actie","insect","reeling","rellen","vallen","regen","spijker","tas",
+			   "karton",""
    };
 	static public int lengte = 0;
 	
@@ -37,9 +39,10 @@ public class Woord {
 		
 		Random random = new Random();
 		int number;
-		number = 1+random.nextInt(204);
+		number = 1+random.nextInt(295);
 		woord = (woorden[number]);
 		lengte = (woorden[number].length());//moet mischien nog weg.
+		//System.out.println(woorden.length);
 		
 	}
 

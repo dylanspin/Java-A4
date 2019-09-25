@@ -5,14 +5,14 @@ public class replaceLetter {
 	public String letter,hetWoord,tekening;
 	public String[] streep;
 
-	public int kansen = 5;
+	public int kansen = 8;
 	public int loc;
 	public boolean start = true;
 	
 	public void replace_woord(){
 		
 		Woord woord = new Woord();
-		
+		//System.out.println(woord.woord); //voor testen 
 		if(start) {
 			replaceWoord = (woord.woord);//krijgt het woord van de classe Woord.
 			replaceWoord = replaceWoord.replaceAll("[a-z]","-");//replaced alle letters van het woord naar streepjes
@@ -29,13 +29,13 @@ public class replaceLetter {
 				
 		hetWoord = (woord.woord);//het random woord.
 		
-		if(ingevult[tell].length()>0) {
-			letter = ingevult[tell].substring(0,1);
-			loc = (hetWoord.indexOf(letter));
+		if(ingevult[tell].length()>0) {//checkt als er iets is ingevult is.
+			letter = ingevult[tell].substring(0,1);//pakt de eerste letter van de input.
+			loc = (hetWoord.indexOf(letter));//pakt de locatie van de ingevulde letter in het random woord.
 		}
 	
 		if(kansen>0) { //checkt als er nog levens zijn.
-			if(ingevult[tell].length()>0) {
+			if(ingevult[tell].length()>0) {//checkt als er iets is ingevult is.
 				if(loc >= 0) {//checkt als de letter in het woord zit.
 					 System.out.println("zit er in.");
 					 replaceWoord = replaceWoord.substring(0, loc) 
@@ -43,25 +43,27 @@ public class replaceLetter {
 			             + replaceWoord.substring(loc + 1); 
 				}
 				else { //als de letter niet in het woord zit.
-					kansen --;
-					levens.printLevens(kansen);
+					kansen --; //als de letter er niet in zit dan gaat er een leven van af.
+					levens.printLevens(kansen);//print de galg uit.
 					tekening = levens.tekening;
+					System.out.println("Zit er niet in");
 				}
 			}
 			if(raad.length()>0) {
 				if(raad.equals(woord.woord)) {
 					System.out.println("gewonnen");
-					tekening = "\tGewonnen";
+					levens.gewonnen();//doet de gewonnen function in de class levens.
+					tekening = levens.gewon;//pakt de winscreen van de class levens.
 				}
 				else {
-					kansen = 0;
-					levens.printLevens(kansen);
+					kansen = 0; //als er gegokt is en het is fout dan is de game over.
+					levens.printLevens(kansen);//pakt de dood screen van de class levens.
 					tekening = levens.tekening;
 					System.out.println("verkeerd woord");
 				}	
 			}
 		}
-		else {
+		else {//als de game over is.
 			System.out.println("dood");
 		}
 		
@@ -70,7 +72,6 @@ public class replaceLetter {
 
 	
 	/*wat er nog moet gebeuren:
-	 * ingevulde letters toevoegen aan de JList of een J
 	 * ales zo als de eindopdracht moet maken
 	*/
 

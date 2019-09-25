@@ -3,8 +3,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -75,13 +73,19 @@ public class Index extends JFrame{
 		galg.setBackground(new Color(47,45,45));
 		
 		reset = new JButton("Reset");//reset button voor de game.//moet denkt nog in een andere class.
-		reset.setPreferredSize(new Dimension(100,30));
+		reset.setPreferredSize(new Dimension(150,30));
+		reset.setFont(new Font("", Font.PLAIN, 20));
+		reset.setForeground(new Color(222,94,20));
+		reset.setBackground(new Color(29,27,27));
 		reset.addActionListener(
 				new ButtonCounterActionListener()
 		);		
 		
 		stuur = new JButton("Stuur");//stuurt de letter/geraden woord.//moet denkt nog in een andere class.
 		stuur.setPreferredSize(new Dimension(150,30));
+		stuur.setFont(new Font("", Font.PLAIN, 20));
+		stuur.setForeground(new Color(222,94,20));
+		stuur.setBackground(new Color(29,27,27));
 		stuur.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
