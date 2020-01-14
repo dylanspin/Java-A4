@@ -13,23 +13,23 @@ public class Index extends JFrame{
 	
 	private JTextField letter,raden;
 	private JTextPane galg;
-	private JLabel naam,letters,enter,enter2,space;
+	private JLabel naam,letters,enter,enter2;
 	private JButton reset,stuur;
-	
+
 	public static String vak,tekening;
 	public String raad;
 	public String[] ingevult = new String[100];
-	public int tell,kansen;	
+	public int tell,kansen;
 	
 	public Index() {
 		
 		createView();
-		
 		setTitle("Hangman");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(400,700);
+		setLocation(0,0);
 		setLocationRelativeTo(null);
-		setResizable(false);
+		setResizable(false);	
 		
 	}
 	
@@ -42,21 +42,20 @@ public class Index extends JFrame{
 		getContentPane().add(panel);
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
-		raden = new JTextField("");//textfield voor het raden van het woord.
+		raden = new JTextField("");
 		raden.setPreferredSize(new Dimension(150,30));
 		
-		letter = new JTextField("");//krijg for some reason niet de input moet gefixt worden
-		letter.setPreferredSize(new Dimension(100,30));
+		letter = new JTextField("");
+		letter.setPreferredSize(new Dimension(150,30));
 		
-		enter = new JLabel();
+		enter = new JLabel("Letter          Woord",SwingConstants.CENTER);
 		enter.setPreferredSize(new Dimension(400,20));
+		enter.setFont(new Font("", Font.PLAIN, 20));
+		enter.setForeground(Color.WHITE);
 		
 		enter2 = new JLabel();
 		enter2.setPreferredSize(new Dimension(300,20));
 
-		space = new JLabel();
-		space.setPreferredSize(new Dimension(70,30));
-		
 		naam = new JLabel("Hangman ");//naam game.
 		naam.setForeground(Color.WHITE);
 		naam.setFont(new Font("", Font.PLAIN, 75));
@@ -68,23 +67,23 @@ public class Index extends JFrame{
 		
 		galg = new JTextPane();
 		galg.setPreferredSize(new Dimension(400,400));
-		galg.setFont(new Font("", Font.PLAIN, 30));
+		galg.setFont(new Font("", Font.PLAIN,30));
 		galg.setForeground(Color.WHITE);
 		galg.setBackground(new Color(47,45,45));
 		
 		reset = new JButton("Reset");//reset button voor de game.//moet denkt nog in een andere class.
 		reset.setPreferredSize(new Dimension(150,30));
 		reset.setFont(new Font("", Font.PLAIN, 20));
-		reset.setForeground(new Color(222,94,20));
+		reset.setForeground(Color.WHITE);
 		reset.setBackground(new Color(29,27,27));
 		reset.addActionListener(
 				new ButtonCounterActionListener()
-		);		
+		);
 		
 		stuur = new JButton("Stuur");//stuurt de letter/geraden woord.//moet denkt nog in een andere class.
 		stuur.setPreferredSize(new Dimension(150,30));
 		stuur.setFont(new Font("", Font.PLAIN, 20));
-		stuur.setForeground(new Color(222,94,20));
+		stuur.setForeground(Color.WHITE);
 		stuur.setBackground(new Color(29,27,27));
 		stuur.addActionListener(new ActionListener() {
 			
@@ -97,6 +96,7 @@ public class Index extends JFrame{
 				letter.setText("");
 				kansen = Replace.kansen;
 				galg.setText(Replace.tekening);
+				vak = (Replace.replaceWoord);
 			}	
 		});
 		
@@ -105,7 +105,6 @@ public class Index extends JFrame{
 		panel.add(letter);
 		panel.add(raden);
 		panel.add(enter2);
-		panel.add(space);
 		panel.add(letters);
 		panel.add(stuur);
 		panel.add(reset);
@@ -121,7 +120,7 @@ public class Index extends JFrame{
 		woord.random();//pakt een random woord uit de classe woord.
 		Replace.replace_woord();//maakt van het woord streepjes.
 		
-		vak = (Replace.replaceWoord);
+		vak = Replace.replaceWoord;
 		
 		SwingUtilities.invokeLater(new Runnable() {    	
     		public void run() {
