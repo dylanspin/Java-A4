@@ -12,7 +12,7 @@ public class replaceLetter {
 	public void replace_woord(){
 		
 		Woord woord = new Woord();
-		//System.out.println(woord.woord); //voor testen/cheaten.
+		System.out.println(woord.woord); //voor testen/cheaten.
 		
 		if(start) {
 			woord2 = woord.woord;
@@ -22,7 +22,7 @@ public class replaceLetter {
 		}
 	}
 	
-	public void gelijk(String[] ingevult, int tell,String raad){
+	public void gelijk(String[] ingevult, int tell){
 		
 		replace_woord();
 		
@@ -38,11 +38,11 @@ public class replaceLetter {
 		}
 		
 		if(kansen>0) { //checkt als er nog levens zijn.
-			if(ingevult[tell].length()>0) {//checkt als er iets is ingevult is.
+			if(ingevult[tell].length() == 1) {//checkt als er iets is ingevult is.
 				if(loc >= 0) {//checkt als de letter in het woord zit.
-					 System.out.println("zit er in.");
 					 woord2 = woord2.replaceAll(letter,hoofd);
 					 replaceWoord = woord2.replaceAll("[a-z]","-");//veranderd alles naar een - behalve als het een hoofdletter is.
+					 System.out.println("zit er in.");
 				}
 				else { //als de letter niet in het woord zit.
 					kansen --; //als de letter er niet in zit dan gaat er een leven van af.
@@ -50,12 +50,11 @@ public class replaceLetter {
 					tekening = levens.tekening;
 					System.out.println("Zit er niet in");
 				}
-			}
-			if(raad.length()>0) {
-				if(raad.equals(woord.woord)) {
-					System.out.println("gewonnen");
+			}else {		
+				if(ingevult[tell].equals(woord.woord)) {
 					levens.gewonnen();//doet de gewonnen function in de class levens.
 					tekening = levens.gewon;//pakt de winscreen van de class levens.
+					System.out.println("gewonnen");
 				}
 				else {
 					kansen = 0; //als er gegokt is en het is fout dan is de game over.
@@ -71,8 +70,4 @@ public class replaceLetter {
 	}
 }
 
-	
-	/*wat er nog moet gebeuren:
-	 * ales zo als de eindopdracht moet maken
-	*/
 

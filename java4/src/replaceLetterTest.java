@@ -6,69 +6,72 @@ import org.junit.jupiter.api.Test;
 
 class replaceLetterTest {
 	
-	//Weet nog niet goed hoe deze test werken.
-	
 	@Test
-	void test() {
-		String WoordTest[] = {"TestWorRD","Test","RandomWOord"};
-		String LetterTest = "r";
-		int LengteTest = 5;
-		replaceLetter ReplaceTest = new replaceLetter();
-		ReplaceTest.gelijk(WoordTest, LengteTest ,LetterTest);
-	}
-	
-	@Test
-	void test2() {
+	void test1() {
 		replaceLetter ReplaceTest = new replaceLetter();
 		ReplaceTest.replace_woord();
 	}
 	
 	@Test
-	void test3() {
+	void test2() {
 		int Levens = 80;
 		Levens levensTest = new Levens();
 		levensTest.printLevens(Levens);
 	}
 	
 	@Test
-	void test4() {
+	void test3() {
 		Levens levensTest = new Levens();
 		levensTest.gewonnen();
 	}
-	
+
 	@Test
-	void test5() {
-		String WoordTest[] = {"","",""};
-		String LetterTest = "1";
-		int LengteTest = 5;
-		replaceLetter ReplaceTest = new replaceLetter();
-		ReplaceTest.gelijk(WoordTest, LengteTest ,LetterTest);
-	}
-	
-	@Test
-	void test6() {
-		String WoordTest[] = {"Nieuw woorden","oke oke","Text woorden"};
-		String LetterTest = "1";
-		int LengteTest = 20;
-		replaceLetter ReplaceTest = new replaceLetter();
-		ReplaceTest.gelijk(WoordTest, LengteTest ,LetterTest);
-	}
-	
-	@Test
-	void test7() {
+	void test4() {
 		replaceLetter ReplaceTest = new replaceLetter();
 		ReplaceTest.start = true;
 	}
 	
 	@Test
-	void test8() {
+	void test5() {
 		Index IndexTest = new Index();
 		IndexTest.ingevult = new String[0];
 	}
+	
 	@Test
-	void test9() {
+	void test6() {
 		Index IndexTest = new Index();
 		IndexTest.ingevult = new String[20];
+	}
+	
+	@Test
+	void test7() {
+		replaceLetter ReplaceTest = new replaceLetter();
+		ReplaceTest.replaceWoord = "dddddddddddddddddddddddddddddddd";
+	}
+	@Test
+	void test8() {
+		replaceLetter ReplaceTest = new replaceLetter();
+		ReplaceTest.replaceWoord = "";
+	}
+	
+	@Test
+	void test9() {
+		String[] test = {"",""};
+		replaceLetter ReplaceTest = new replaceLetter();
+		ReplaceTest.gelijk(test,0);
+	}
+	
+	@Test
+	void test10() {
+		String[] test = {"dddddddddddddddddd","AAAAAAAAAAAAAAAAAA"};
+		replaceLetter ReplaceTest = new replaceLetter();
+		ReplaceTest.gelijk(test,0);
+	}
+	
+	@Test
+	void test11() {
+		replaceLetter ReplaceTest = new replaceLetter();
+		ReplaceTest.start = false;
 	}
 
 }

@@ -7,11 +7,10 @@ public class ButtonCounterActionListener implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Restart!");
 		
-		Index index = new  Index(); //Woord class.
+		main mainClass = new  main(); //Woord class.
 		
-		index.main(new String[0]);//restard de Jframe
+		mainClass.main(new String[0]);//restard de Jframe
 	}
 
 
